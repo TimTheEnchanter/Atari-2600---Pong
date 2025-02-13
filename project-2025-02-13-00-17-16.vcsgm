@@ -1,0 +1,551 @@
+type: VCS Game Maker Project
+format-version: 1
+generation-time: 2025-02-13T00:17:16.648Z
+blockly-workspace: >-
+  <xml xmlns="https://developers.google.com/blockly/xml">
+    <variables>
+      <variable id="gbMo:{Nq19l4(d7rk)%:">Player 0 X Speed</variable>
+      <variable id="x93/sxShoilEKlfnMWab">Player 1 X Speed</variable>
+      <variable id="X%nFvp]Y-%*qYZ@LoeyU">Ball X Speed</variable>
+      <variable id="|S5k3CctA)0OcgbY_4~]">Ball Y Speed</variable>
+    </variables>
+    <block type="event_block" id="|Bk*j6[E:Z=]N7DdcZ-b" x="87" y="38">
+      <field name="EVENT">title_start</field>
+      <statement name="DO">
+        <block type="background_set_select" id="6aOv0a3bCN;{:;suxZVR">
+          <field name="VAR">2</field>
+          <next>
+            <block type="background_set_color" id="ItWw}XP.q9BVmz[9K^/y">
+              <field name="VAR">COLUBK</field>
+              <value name="VALUE">
+                <shadow type="math_number" id="4.ul:`%8Joh=R]oKI-;*">
+                  <field name="NUM">2</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="sprite_player0_set" id="5S)kh|6MJJ4L^Or,_va7">
+                  <field name="VAR">player0y</field>
+                  <value name="VALUE">
+                    <shadow type="math_number" id="VeR{N!AA)Y0eUtg+irO.">
+                      <field name="NUM">0</field>
+                    </shadow>
+                  </value>
+                  <next>
+                    <block type="sprite_player1_set" id="{A$hm%8?%QFOqJVbRRi?">
+                      <field name="VAR">player1y</field>
+                      <value name="VALUE">
+                        <shadow type="math_number" id="S19_4Ee(Mw7?1*(H{e~}">
+                          <field name="NUM">0</field>
+                        </shadow>
+                      </value>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+      <next>
+        <block type="event_block" id="vuGBsL*B5Do5yRY+T^A%">
+          <field name="EVENT">title_update</field>
+          <statement name="DO">
+            <block type="controls_if" id="Dcx;@wu+9L%:cvNJj.8b">
+              <value name="IF0">
+                <block type="input_joy0_get" id="v8!Ptliw39_)FEG7A}}(">
+                  <field name="VAR">joy0fire</field>
+                </block>
+              </value>
+              <statement name="DO0">
+                <block type="event_change_state" id="@[y:;GoweN-%47Kp[sX@">
+                  <field name="STATE">gameplay</field>
+                </block>
+              </statement>
+            </block>
+          </statement>
+          <next>
+            <block type="event_block" id="B.Yg^Pwtot05]`I36riz">
+              <field name="EVENT">gameplay_start</field>
+              <statement name="DO">
+                <block type="background_set_select" id="}g!XJ`X2fMIJh(x87q(e">
+                  <field name="VAR">1</field>
+                  <next>
+                    <block type="background_set_color" id="*Zr*_:r06fm,X/VRRmj:">
+                      <field name="VAR">COLUBK</field>
+                      <value name="VALUE">
+                        <shadow type="math_number" id="v4VRlN@oxY5Q=i-g[ixg">
+                          <field name="NUM">80</field>
+                        </shadow>
+                      </value>
+                      <next>
+                        <block type="sprite_player0_set" id="o;:TwxS|Q~J9GUol-717">
+                          <field name="VAR">player0y</field>
+                          <value name="VALUE">
+                            <shadow type="math_number" id=",diZzp~HaR?`P]/kVA;n">
+                              <field name="NUM">90</field>
+                            </shadow>
+                          </value>
+                          <next>
+                            <block type="sprite_player1_set" id="VaG}_ewUe4=2;QLBde2k">
+                              <field name="VAR">player1y</field>
+                              <value name="VALUE">
+                                <shadow type="math_number" id="tu^EK#xVOFY|hGK`XRFB">
+                                  <field name="NUM">10</field>
+                                </shadow>
+                              </value>
+                              <next>
+                                <block type="controls_if" id="|*L@K,YuCdjN#jq|iI]%">
+                                  <value name="IF0">
+                                    <block type="logic_operation" id="QFJv;~YU]L1^[*UVe+en">
+                                      <field name="OP">AND</field>
+                                      <value name="A">
+                                        <block type="variables_get" id="NtBCVU9wNG59,$DV_#K)">
+                                          <field name="VAR" id="gbMo:{Nq19l4(d7rk)%:">Player 0 X Speed</field>
+                                        </block>
+                                      </value>
+                                      <value name="B">
+                                        <block type="collision_get" id="!Vn(|0XT2c|H61QYCAc[">
+                                          <field name="VAR0">player0</field>
+                                          <field name="VAR1">playfield</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </value>
+                                  <statement name="DO0">
+                                    <block type="variables_set" id="5lIWK-A@5vZMCpGy|,^x">
+                                      <field name="VAR" id="gbMo:{Nq19l4(d7rk)%:">Player 0 X Speed</field>
+                                      <value name="VALUE">
+                                        <block type="math_single" id="Pk0TqIwUaSwabPfy8)6j">
+                                          <field name="OP">NEG</field>
+                                          <value name="NUM">
+                                            <block type="variables_get" id="A@I%?qqtAS:m-V,{PS,~">
+                                              <field name="VAR" id="gbMo:{Nq19l4(d7rk)%:">Player 0 X Speed</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </value>
+                                      <next>
+                                        <block type="sprite_player0_change" id="/M0c]z@UUer5|3xAlUGz">
+                                          <field name="VAR">player0x</field>
+                                          <value name="DELTA">
+                                            <shadow xmlns="" type="math_number">
+                                              <field name="NUM">1</field>
+                                            </shadow>
+                                            <block type="variables_get" id="x2!WG0TbE]Z@c$0k+~zj">
+                                              <field name="VAR" id="gbMo:{Nq19l4(d7rk)%:">Player 0 X Speed</field>
+                                            </block>
+                                          </value>
+                                        </block>
+                                      </next>
+                                    </block>
+                                  </statement>
+                                  <next>
+                                    <block type="variables_set" id="lyo|@?iJk6SZ}o76;zTW">
+                                      <field name="VAR" id="gbMo:{Nq19l4(d7rk)%:">Player 0 X Speed</field>
+                                      <value name="VALUE">
+                                        <block type="math_number" id="YzLI@df=S//|DB(9U{,F">
+                                          <field name="NUM">0</field>
+                                        </block>
+                                      </value>
+                                      <next>
+                                        <block type="controls_if" id="5C_evK~/zLUk0wJeW9J1">
+                                          <value name="IF0">
+                                            <block type="input_joy0_get" id="UXW@|xd{6zuh[NJR$rZz">
+                                              <field name="VAR">joy0right</field>
+                                            </block>
+                                          </value>
+                                          <statement name="DO0">
+                                            <block type="variables_set" id="R7CZc%jmK6xePr`aOV%E">
+                                              <field name="VAR" id="gbMo:{Nq19l4(d7rk)%:">Player 0 X Speed</field>
+                                              <value name="VALUE">
+                                                <block type="math_number" id="wQ;XpD/Da4Ka2bFdZ?nt">
+                                                  <field name="NUM">1</field>
+                                                </block>
+                                              </value>
+                                            </block>
+                                          </statement>
+                                          <next>
+                                            <block type="controls_if" id="67e(S-)8^(WM;~9?t+BI">
+                                              <value name="IF0">
+                                                <block type="input_joy0_get" id="f0Jpcj(TtdfTbcF!N!nM">
+                                                  <field name="VAR">joy0left</field>
+                                                </block>
+                                              </value>
+                                              <statement name="DO0">
+                                                <block type="variables_set" id=",anH+uWH4OR1}]VbxV?9">
+                                                  <field name="VAR" id="gbMo:{Nq19l4(d7rk)%:">Player 0 X Speed</field>
+                                                  <value name="VALUE">
+                                                    <block type="math_number" id="SsLAvw}{?SIGb0#lWl.i">
+                                                      <field name="NUM">255</field>
+                                                    </block>
+                                                  </value>
+                                                </block>
+                                              </statement>
+                                              <next>
+                                                <block type="sprite_player0_change" id=",[1ene!JM*^WzcuSZQ[5">
+                                                  <field name="VAR">player0x</field>
+                                                  <value name="DELTA">
+                                                    <shadow xmlns="" type="math_number">
+                                                      <field name="NUM">1</field>
+                                                    </shadow>
+                                                    <block type="variables_get" id="OCl^vEv^NjB}^-4FX=kw">
+                                                      <field name="VAR" id="gbMo:{Nq19l4(d7rk)%:">Player 0 X Speed</field>
+                                                    </block>
+                                                  </value>
+                                                  <next>
+                                                    <block type="controls_if" id="NY*3d(Xb,3C$W?O/@i-=">
+                                                      <value name="IF0">
+                                                        <block type="logic_operation" id="z|]A22%5Ma`udZ%9Tt8L">
+                                                          <field name="OP">AND</field>
+                                                          <value name="A">
+                                                            <block type="variables_get" id="(hb`Rxhk:Q*g97UFBjLM">
+                                                              <field name="VAR" id="x93/sxShoilEKlfnMWab">Player 1 X Speed</field>
+                                                            </block>
+                                                          </value>
+                                                          <value name="B">
+                                                            <block type="collision_get" id="~gl6CjN6WQ$v}wFcaTWx">
+                                                              <field name="VAR0">player1</field>
+                                                              <field name="VAR1">playfield</field>
+                                                            </block>
+                                                          </value>
+                                                        </block>
+                                                      </value>
+                                                      <statement name="DO0">
+                                                        <block type="variables_set" id="-9fDnHXsB~{GJLq,wn-)">
+                                                          <field name="VAR" id="x93/sxShoilEKlfnMWab">Player 1 X Speed</field>
+                                                          <value name="VALUE">
+                                                            <block type="math_single" id="ue-=QyjsO_Rf(hbff2I}">
+                                                              <field name="OP">NEG</field>
+                                                              <value name="NUM">
+                                                                <block type="variables_get" id="?azG~0W;9i:9X]bAA_49">
+                                                                  <field name="VAR" id="x93/sxShoilEKlfnMWab">Player 1 X Speed</field>
+                                                                </block>
+                                                              </value>
+                                                            </block>
+                                                          </value>
+                                                          <next>
+                                                            <block type="sprite_player1_change" id="=L9TY0I6YVg./[PreDh(">
+                                                              <field name="VAR">player1x</field>
+                                                              <value name="DELTA">
+                                                                <shadow xmlns="" type="math_number">
+                                                                  <field name="NUM">1</field>
+                                                                </shadow>
+                                                                <block type="variables_get" id="13Jo_AbaKcmt_L]1n_)G">
+                                                                  <field name="VAR" id="x93/sxShoilEKlfnMWab">Player 1 X Speed</field>
+                                                                </block>
+                                                              </value>
+                                                            </block>
+                                                          </next>
+                                                        </block>
+                                                      </statement>
+                                                      <next>
+                                                        <block type="variables_set" id="oUqr6zuOy_Z`4FyDTq~+">
+                                                          <field name="VAR" id="x93/sxShoilEKlfnMWab">Player 1 X Speed</field>
+                                                          <value name="VALUE">
+                                                            <block type="math_number" id="C|lTQ`cM,rX`et~unIPE">
+                                                              <field name="NUM">0</field>
+                                                            </block>
+                                                          </value>
+                                                          <next>
+                                                            <block type="controls_if" id="oBC8h#/]@(uj;nC!-u*?">
+                                                              <value name="IF0">
+                                                                <block type="input_joy1_get" id="_U)$k/#2%cy|V{|6z.+H">
+                                                                  <field name="VAR">joy1right</field>
+                                                                </block>
+                                                              </value>
+                                                              <statement name="DO0">
+                                                                <block type="variables_set" id="FT%-YYAo^hJV-Fb[I!.l">
+                                                                  <field name="VAR" id="x93/sxShoilEKlfnMWab">Player 1 X Speed</field>
+                                                                  <value name="VALUE">
+                                                                    <block type="math_number" id="3F!yf5)r;Sk!gfzoDZO/">
+                                                                      <field name="NUM">1</field>
+                                                                    </block>
+                                                                  </value>
+                                                                </block>
+                                                              </statement>
+                                                              <next>
+                                                                <block type="controls_if" id="g9v;@!so2Q`~NCK2k%-6">
+                                                                  <value name="IF0">
+                                                                    <block type="input_joy1_get" id="fg:k0w5a{|F%Gm/wJL^K">
+                                                                      <field name="VAR">joy1left</field>
+                                                                    </block>
+                                                                  </value>
+                                                                  <statement name="DO0">
+                                                                    <block type="variables_set" id="xr_!/XKoJr17PsZzYIVc">
+                                                                      <field name="VAR" id="x93/sxShoilEKlfnMWab">Player 1 X Speed</field>
+                                                                      <value name="VALUE">
+                                                                        <block type="math_number" id=";qdWe,?i0YjtlWo4EeNT">
+                                                                          <field name="NUM">255</field>
+                                                                        </block>
+                                                                      </value>
+                                                                    </block>
+                                                                  </statement>
+                                                                  <next>
+                                                                    <block type="sprite_player1_change" id="E9XO.TUm1%Gt*}{R[OrF">
+                                                                      <field name="VAR">player1x</field>
+                                                                      <value name="DELTA">
+                                                                        <shadow xmlns="" type="math_number">
+                                                                          <field name="NUM">1</field>
+                                                                        </shadow>
+                                                                        <block type="variables_get" id="X+=O_M!FRM+$5zQ)yXo;">
+                                                                          <field name="VAR" id="x93/sxShoilEKlfnMWab">Player 1 X Speed</field>
+                                                                        </block>
+                                                                      </value>
+                                                                      <next>
+                                                                        <block type="sprite_ball_set" id="Ess*tF[MF@/txMWgb%gb">
+                                                                          <field name="VAR">ballheight</field>
+                                                                          <value name="VALUE">
+                                                                            <shadow type="math_number" id="kIlaw@A#bAwiXf3WUbDz">
+                                                                              <field name="NUM">1</field>
+                                                                            </shadow>
+                                                                          </value>
+                                                                          <next>
+                                                                            <block type="controls_if" id="~k$LpGKY6)s$tJ{q4S{d">
+                                                                              <value name="IF0">
+                                                                                <block type="logic_negate" id="P;#F5y|9zR.7chBixUy8">
+                                                                                  <value name="BOOL">
+                                                                                    <block type="variables_get" id="mfNiwj+7@9UVN)CqMzMc">
+                                                                                      <field name="VAR" id="|S5k3CctA)0OcgbY_4~]">Ball Y Speed</field>
+                                                                                    </block>
+                                                                                  </value>
+                                                                                </block>
+                                                                              </value>
+                                                                              <statement name="DO0">
+                                                                                <block type="variables_set" id="o*$aU@zyY1{/y#)^PY^K">
+                                                                                  <field name="VAR" id="X%nFvp]Y-%*qYZ@LoeyU">Ball X Speed</field>
+                                                                                  <value name="VALUE">
+                                                                                    <block type="math_number" id="Q(Cowu#fG9S:MZ9%c(08">
+                                                                                      <field name="NUM">0</field>
+                                                                                    </block>
+                                                                                  </value>
+                                                                                  <next>
+                                                                                    <block type="variables_set" id="[Q~N=$)+3l$[qNYGuI2S">
+                                                                                      <field name="VAR" id="|S5k3CctA)0OcgbY_4~]">Ball Y Speed</field>
+                                                                                      <value name="VALUE">
+                                                                                        <block type="math_number" id="%0SW};^|@YfJBXWtw%Fr">
+                                                                                          <field name="NUM">1</field>
+                                                                                        </block>
+                                                                                      </value>
+                                                                                      <next>
+                                                                                        <block type="sprite_ball_set" id=":Ojq?kJVOne}k?~6K-+6">
+                                                                                          <field name="VAR">ballx</field>
+                                                                                          <value name="VALUE">
+                                                                                            <shadow type="math_number" id="fowRIdU~prJ7l`O[QvYb">
+                                                                                              <field name="NUM">80</field>
+                                                                                            </shadow>
+                                                                                          </value>
+                                                                                          <next>
+                                                                                            <block type="sprite_ball_set" id="HN.u+W}rl_Rrpwl%$;dU">
+                                                                                              <field name="VAR">bally</field>
+                                                                                              <value name="VALUE">
+                                                                                                <shadow type="math_number" id="|yl8cE~PMSP15|R*jaK5">
+                                                                                                  <field name="NUM">64</field>
+                                                                                                </shadow>
+                                                                                              </value>
+                                                                                              <next>
+                                                                                                <block type="sprite_ball_set" id="3z2g^mzo@#sHJ37Z7dFi">
+                                                                                                  <field name="VAR">ballheight</field>
+                                                                                                  <value name="VALUE">
+                                                                                                    <shadow type="math_number" id="):(h2fb*!-PpkBSS|OhE">
+                                                                                                      <field name="NUM">1</field>
+                                                                                                    </shadow>
+                                                                                                  </value>
+                                                                                                </block>
+                                                                                              </next>
+                                                                                            </block>
+                                                                                          </next>
+                                                                                        </block>
+                                                                                      </next>
+                                                                                    </block>
+                                                                                  </next>
+                                                                                </block>
+                                                                              </statement>
+                                                                              <next>
+                                                                                <block type="sprite_ball_change" id="DZHP(HQpO%p,s=@^a@B)">
+                                                                                  <field name="VAR">bally</field>
+                                                                                  <value name="DELTA">
+                                                                                    <shadow xmlns="" type="math_number">
+                                                                                      <field name="NUM">1</field>
+                                                                                    </shadow>
+                                                                                    <block type="variables_get" id="=mRL_8b0/Z?}OZ`%FCad">
+                                                                                      <field name="VAR" id="|S5k3CctA)0OcgbY_4~]">Ball Y Speed</field>
+                                                                                    </block>
+                                                                                  </value>
+                                                                                  <next>
+                                                                                    <block type="controls_if" id="a8pp$(zt}z;2:+QNK]fd">
+                                                                                      <value name="IF0">
+                                                                                        <block type="collision_get" id="a8:xet{J#=$ldePG1KZb">
+                                                                                          <field name="VAR0">playfield</field>
+                                                                                          <field name="VAR1">ball</field>
+                                                                                        </block>
+                                                                                      </value>
+                                                                                      <statement name="DO0">
+                                                                                        <block type="controls_if" id=";n$*nF2d}ID^eUnjD9J*">
+                                                                                          <mutation else="1"></mutation>
+                                                                                          <value name="IF0">
+                                                                                            <block type="logic_compare" id="}K?zm2:BnF6`~96mCM@r">
+                                                                                              <field name="OP">LT</field>
+                                                                                              <value name="A">
+                                                                                                <block type="variables_get" id="=C+g~X@]+*WUmQD=gv6:">
+                                                                                                  <field name="VAR" id="|S5k3CctA)0OcgbY_4~]">Ball Y Speed</field>
+                                                                                                </block>
+                                                                                              </value>
+                                                                                              <value name="B">
+                                                                                                <block type="math_number" id="VM]|KDf!k)etU]fP9JiE">
+                                                                                                  <field name="NUM">2</field>
+                                                                                                </block>
+                                                                                              </value>
+                                                                                            </block>
+                                                                                          </value>
+                                                                                          <statement name="DO0">
+                                                                                            <block type="variables_set" id="0EqbMc%8]KL]hDs~v8P!">
+                                                                                              <field name="VAR" id="|S5k3CctA)0OcgbY_4~]">Ball Y Speed</field>
+                                                                                              <value name="VALUE">
+                                                                                                <block type="math_number" id="bb4+nf]cNw_sDB4F0!,1">
+                                                                                                  <field name="NUM">255</field>
+                                                                                                </block>
+                                                                                              </value>
+                                                                                            </block>
+                                                                                          </statement>
+                                                                                          <statement name="ELSE">
+                                                                                            <block type="variables_set" id="Y0Q~@:T@EUYkPl@;$v{L">
+                                                                                              <field name="VAR" id="|S5k3CctA)0OcgbY_4~]">Ball Y Speed</field>
+                                                                                              <value name="VALUE">
+                                                                                                <block type="math_number" id="b4~n7kT//.EFnKBz4wvO">
+                                                                                                  <field name="NUM">1</field>
+                                                                                                </block>
+                                                                                              </value>
+                                                                                            </block>
+                                                                                          </statement>
+                                                                                          <next>
+                                                                                            <block type="sprite_ball_change" id="lXt=v~Wi,TX1aVuBJMlY">
+                                                                                              <field name="VAR">bally</field>
+                                                                                              <value name="DELTA">
+                                                                                                <shadow xmlns="" type="math_number">
+                                                                                                  <field name="NUM">1</field>
+                                                                                                </shadow>
+                                                                                                <block type="variables_get" id="y@HD49NVJ!-huIpO75P[">
+                                                                                                  <field name="VAR" id="|S5k3CctA)0OcgbY_4~]">Ball Y Speed</field>
+                                                                                                </block>
+                                                                                              </value>
+                                                                                              <next>
+                                                                                                <block type="sprite_ball_change" id="`7|nv|.gA@a6)%Ly8P=P">
+                                                                                                  <field name="VAR">bally</field>
+                                                                                                  <value name="DELTA">
+                                                                                                    <shadow xmlns="" type="math_number">
+                                                                                                      <field name="NUM">1</field>
+                                                                                                    </shadow>
+                                                                                                    <block type="variables_get" id="4UO{E$~XNGq}it^.)X6#">
+                                                                                                      <field name="VAR" id="|S5k3CctA)0OcgbY_4~]">Ball Y Speed</field>
+                                                                                                    </block>
+                                                                                                  </value>
+                                                                                                </block>
+                                                                                              </next>
+                                                                                            </block>
+                                                                                          </next>
+                                                                                        </block>
+                                                                                      </statement>
+                                                                                    </block>
+                                                                                  </next>
+                                                                                </block>
+                                                                              </next>
+                                                                            </block>
+                                                                          </next>
+                                                                        </block>
+                                                                      </next>
+                                                                    </block>
+                                                                  </next>
+                                                                </block>
+                                                              </next>
+                                                            </block>
+                                                          </next>
+                                                        </block>
+                                                      </next>
+                                                    </block>
+                                                  </next>
+                                                </block>
+                                              </next>
+                                            </block>
+                                          </next>
+                                        </block>
+                                      </next>
+                                    </block>
+                                  </next>
+                                </block>
+                              </next>
+                            </block>
+                          </next>
+                        </block>
+                      </next>
+                    </block>
+                  </next>
+                </block>
+              </statement>
+            </block>
+          </next>
+        </block>
+      </next>
+    </block>
+  </xml>
+player-0:
+  animations:
+    - id: 1
+      name: Player 1 Paddle
+      frames:
+        - id: 1
+          duration: 10
+          pixels: |-
+            ........
+            ........
+            ........
+            XXXXXXXX
+            XXXXXXXX
+            ........
+            ........
+            ........
+player-1:
+  animations:
+    - id: 1
+      name: Player 2 Paddle
+      frames:
+        - id: 1
+          duration: 10
+          pixels: |-
+            ........
+            ........
+            ........
+            XXXXXXXX
+            XXXXXXXX
+            ........
+            ........
+            ........
+backgrounds:
+  backgrounds:
+    - id: 1
+      name: bkg
+      pixels: |-
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+    - id: 2
+      name: Title Screen
+      pixels: |-
+        ................................
+        ................................
+        ....XXXX........................
+        ....X...X.......................
+        ....X...X.......................
+        ....XXXX..XXXXX..X.XXX...XXX....
+        ....X....X.....X.XX...X.X.......
+        ....X....X.....X.X....X.X...X...
+        ....X.....XXXXX..X....X..XXX....
+        ................................
+        ................................
