@@ -1,4 +1,4 @@
-set tv ntsc
+ set tv ntsc
  set romsize 4k
 
 
@@ -65,10 +65,10 @@ title_start_end
 title_update_begin
   gosub commongamelogic
   drawscreen
-  if joy0fire then goto _if_1 else goto _if_1_end
-_if_1
+  if joy0fire then goto _if_2 else goto _if_2_end
+_if_2
   goto gameplay_start_begin
-_if_1_end
+_if_2_end
   goto title_update_begin
 title_update_end
 
@@ -99,59 +99,89 @@ main
 
 
 
-  if joy0right then goto _if_2 else goto _if_2_end
-_if_2
-  player0x = player0x + 3
-_if_2_end
+  if bally > 100 then goto _if_1 else goto _if_1_end
+_if_1
+  score = score + 1
+  AUDV0=0
+  AUDC0=14
+  AUDF0=31
+  AUDV0=15
+  channnel0duration=8
+  for loopcounter = 1 to 10: a = a : next
+  ballx = 80
+  bally = 64
+  bally = bally + Ball_Y_Speed
+_if_1_end
 
-  if joy0left then goto _if_3 else goto _if_3_end
+
+  if joy0right then goto _if_3 else goto _if_3_end
 _if_3
-  player0x = player0x  -3
+  player0x = player0x + 3
 _if_3_end
 
-  if joy1right then goto _if_4 else goto _if_4_end
+  if joy0left then goto _if_4 else goto _if_4_end
 _if_4
-  player1x = player1x + 1
+  player0x = player0x  -3
 _if_4_end
 
-  if joy1left then goto _if_5 else goto _if_5_end
+  if joy1right then goto _if_5 else goto _if_5_end
 _if_5
-  player1x = player1x  -1
+  player1x = player1x + 1
 _if_5_end
+
+  if joy1left then goto _if_6 else goto _if_6_end
+_if_6
+  player1x = player1x  -1
+_if_6_end
   ballheight = 1
 
-  if !Ball_Y_Speed then goto _if_6 else goto _if_6_end
-_if_6
+  if !Ball_Y_Speed then goto _if_7 else goto _if_7_end
+_if_7
   Ball_X_Speed = 0
   Ball_Y_Speed = 1
   ballx = 80
   bally = 64
   ballheight = 1
-_if_6_end
+_if_7_end
   bally = bally + Ball_Y_Speed
 
-  if collision(playfield, ball) then goto _if_7 else goto _if_7_end
-_if_7
-  if Ball_Y_Speed < 2 then goto _if_8 else goto _if_8_end
+  if collision(playfield, ball) then goto _if_8 else goto _if_8_end
 _if_8
+  if Ball_Y_Speed < 2 then goto _if_9 else goto _if_9_end
+_if_9
   Ball_Y_Speed = 255
-  goto _if_8_else_end
-_if_8_end
+  goto _if_9_else_end
+_if_9_end
 
   Ball_Y_Speed = 1
 
-_if_8_else_end
+_if_9_else_end
   bally = bally + Ball_Y_Speed
   bally = bally + Ball_Y_Speed
-_if_7_end
+_if_8_end
 
 
-  if collision(ball, player0) then goto _if_9 else goto _if_9_end
-_if_9
-  temp1 = framecounter & 1
-  if temp1 then goto _frame_even_odd_10_odd
+  if bally < 0 then goto _if_10 else goto _if_10_end
+_if_10
+  score = score  -1
+  AUDV0=0
+  AUDC0=14
+  AUDF0=31
+  AUDV0=15
+  channnel0duration=8
+  for loopcounter = 1 to 10: a = a : next
+  ballx = 80
+  bally = 64
+  bally = bally + Ball_Y_Speed
+_if_10_end
+
+
   if collision(ball, player0) then goto _if_11 else goto _if_11_end
 _if_11
+  temp1 = framecounter & 1
+  if temp1 then goto _frame_even_odd_12_odd
+  if collision(ball, player0) then goto _if_13 else goto _if_13_end
+_if_13
   AUDV0=0
   AUDC0=1
   AUDF0=16
@@ -159,12 +189,12 @@ _if_11
   channnel0duration=5
   Ball_Y_Speed = -Ball_Y_Speed
   bally = bally + Ball_Y_Speed
-_if_11_end
+_if_13_end
   ballx = ballx + Ball_X_Speed
-  goto _frame_even_odd_10_end
-_frame_even_odd_10_odd
-  if collision(ball, player0) then goto _if_12 else goto _if_12_end
-_if_12
+  goto _frame_even_odd_12_end
+_frame_even_odd_12_odd
+  if collision(ball, player0) then goto _if_14 else goto _if_14_end
+_if_14
   AUDV0=0
   AUDC0=1
   AUDF0=15
@@ -172,18 +202,18 @@ _if_12
   channnel0duration=5
   Ball_X_Speed = -Ball_X_Speed
   ballx = ballx + Ball_X_Speed
-_if_12_end
+_if_14_end
   bally = bally + Ball_Y_Speed
-_frame_even_odd_10_end
-_if_9_end
+_frame_even_odd_12_end
+_if_11_end
 
 
-  if collision(ball, player1) then goto _if_13 else goto _if_13_end
-_if_13
-  temp1 = framecounter & 1
-  if temp1 then goto _frame_even_odd_14_odd
   if collision(ball, player1) then goto _if_15 else goto _if_15_end
 _if_15
+  temp1 = framecounter & 1
+  if temp1 then goto _frame_even_odd_16_odd
+  if collision(ball, player1) then goto _if_17 else goto _if_17_end
+_if_17
   AUDV0=0
   AUDC0=1
   AUDF0=16
@@ -191,12 +221,12 @@ _if_15
   channnel0duration=5
   Ball_Y_Speed = -Ball_Y_Speed
   bally = bally + Ball_Y_Speed
-_if_15_end
+_if_17_end
   ballx = ballx + Ball_X_Speed
-  goto _frame_even_odd_14_end
-_frame_even_odd_14_odd
-  if collision(ball, player1) then goto _if_16 else goto _if_16_end
-_if_16
+  goto _frame_even_odd_16_end
+_frame_even_odd_16_odd
+  if collision(ball, player1) then goto _if_18 else goto _if_18_end
+_if_18
   AUDV0=0
   AUDC0=1
   AUDF0=15
@@ -204,10 +234,10 @@ _if_16
   channnel0duration=5
   Ball_X_Speed = -Ball_X_Speed
   ballx = ballx + Ball_X_Speed
-_if_16_end
+_if_18_end
   bally = bally + Ball_Y_Speed
-_frame_even_odd_14_end
-_if_13_end
+_frame_even_odd_16_end
+_if_15_end
   
 
  rem **************************************************************************
